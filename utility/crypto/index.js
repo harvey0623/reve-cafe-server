@@ -1,6 +1,6 @@
 const CryptoJS = require("crypto-js");
-const aes_key = process.env.MMRM_AES_KEY;
-const sign_key = process.env.MMRM_SIGN_KEY;
+const aes_key = process.env.AES_KEY;
+const sign_key = process.env.SIGN_KEY;
 
 const wm_aes = function(input) {
    var keyHash = CryptoJS.SHA384(aes_key);

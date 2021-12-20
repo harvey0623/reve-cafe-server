@@ -8,16 +8,16 @@ const port = process.env.PORT || 3030;
 const dotenv = require('dotenv').config({
    path: '.env.dev'
 });
-const member = require('./route/member/index.js');
-const term = require('./route/term/index.js');
-const transaction = require('./route/transaction/index.js');
-const brand = require('./route/brand/index.js');
-const point = require('./route/point/index.js');
-const level = require('./route/level/index.js');
-const coupon = require('./route/coupon/index.js');
-const store = require('./route/store/index.js');
-const activity = require('./route/activity/index.js');
-const voucher = require('./route/voucher/index.js');
+// const member = require('./route/member/index.js');
+// const term = require('./route/term/index.js');
+// const transaction = require('./route/transaction/index.js');
+// const brand = require('./route/brand/index.js');
+// const point = require('./route/point/index.js');
+// const level = require('./route/level/index.js');
+// const coupon = require('./route/coupon/index.js');
+// const store = require('./route/store/index.js');
+// const activity = require('./route/activity/index.js');
+// const voucher = require('./route/voucher/index.js');
 
 app.listen(port);
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -32,16 +32,32 @@ app.use(cors({
    credentials: true
 }));
 
-app.use('/member', member);
-app.use('/term', term);
-app.use('/transaction', transaction);
-app.use('/brand', brand);
-app.use('/point', point);
-app.use('/level', level);
-app.use('/coupon', coupon);
-app.use('/store', store);
-app.use('/activity', activity);
-app.use('/voucher', voucher);
+// app.use('/member', member);
+// app.use('/term', term);
+// app.use('/transaction', transaction);
+// app.use('/brand', brand);
+// app.use('/point', point);
+// app.use('/level', level);
+// app.use('/coupon', coupon);
+// app.use('/store', store);
+// app.use('/activity', activity);
+// app.use('/voucher', voucher);
+
+const mmrmAxios = require('./utility/axios/index.js');
+const { wm_sign } = require('./utility/crypto/index');
+
+app.post('/test', async(req, res) => {
+   let result = await mmrmAxios({
+      url: '/third_party_api/term/doBriefTerm',
+      method: 'post',
+      data: { ...req.body }
+   }).then(res => {
+      return res.data
+   }).catch(err => {
+      console.log(err.response.data)
+   })
+   res.json(result)
+});
 
 app.use((req, res) => {
    res.write('<h1>Hello mmrm server ~</h1>');
