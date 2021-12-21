@@ -1,15 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const termDao = require('../../dao/term/index.js');
-const checkResponse  = require('../../utility/checkResponse/index.js');
+const thirdPartyApiDao = require('../../dao/third-party-api/index.js');
 
-router.post('/brief_term', async (req, res) => {
-   let response = await termDao.term(req.body);
-   let { status, statusCode } = checkResponse(response);
+router.post('/term/doBriefTerm', async(req, res) => {
+   let response = await thirdPartyApiDao.getTerm(req.body);
+   let statusCode = response.rcrm.RC === 'C01' ? 200 : 400;
    res.status(statusCode).json({
-      status,
-      info: response
-   });
+      status: statusCode === 200,
+      results: response.results,
+   })
 });
 
 module.exports = router;
