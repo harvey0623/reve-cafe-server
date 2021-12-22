@@ -21,6 +21,28 @@ const thirdPartyAuthDao = {
       }).catch(err => {
          return err.response.data;
       });
+   },
+   me() { //登入狀態驗證
+      return mmrmAxios({
+         url: '/api/third_party_auth/me',
+         method: 'post',
+         data: {}
+      }).then(res => {
+         return res.data; 
+      }).catch(err => {
+         return { status: 0 };
+      });
+   },
+   refresh() { //刷新jwt token
+      return mmrmAxios({
+         url: '/api/third_party_auth/refresh',
+         method: 'post',
+         data: {}
+      }).then(res => {
+         return res.data; 
+      }).catch(err => {
+         return err.response.data;
+      });
    }
 };
 

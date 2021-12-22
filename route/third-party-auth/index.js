@@ -18,4 +18,18 @@ router.post('/logout', async(req, res) => {
    res.status(statusCode).json(response);
 });
 
+router.post('/me', async(req, res) => {
+   tempSave.access_token = req.headers.authorization;
+   let response = await thirdPartyAuthDao.me();
+   let statusCode = response.status === 1 ? 200 : 401;
+   res.status(statusCode).json(response);
+});
+
+router.post('/refresh', async(req, res) => {
+   tempSave.access_token = req.headers.authorization;
+   let response = await thirdPartyAuthDao.refresh();
+   let statusCode = response.status === 1 ? 200 : 401;
+   res.status(statusCode).json(response);
+});
+
 module.exports = router;
