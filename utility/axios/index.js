@@ -1,4 +1,5 @@
 const axios = require('axios');
+const tempSave = require('../tempSave/index.js');
 const mmrmAxios = axios.create({
    baseURL: process.env.BASE_URL,
    headers: {
@@ -7,6 +8,13 @@ const mmrmAxios = axios.create({
       'app-id': process.env.APP_ID,
       'device-uuid': process.env.DEVICE_UUID
    },
+});
+
+mmrmAxios.interceptors.request.use(function (config) {
+   config.headers.Authorization = tempSave.access_token;
+   return config;
+}, function (error) {
+   return Promise.reject(error);
 });
 
 module.exports = mmrmAxios;
