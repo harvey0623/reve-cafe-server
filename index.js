@@ -11,6 +11,8 @@ const dotenv = require('dotenv').config({
 
 const thirdPartyAuth = require('./route/third-party-auth/index.js');
 const thirdPartyApi = require('./route/third-party-api/index.js');
+const cart = require('./route/cart/index.js');
+const activity_cart = require('./route/activity-cart/index.js');
 
 app.listen(port);
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,6 +23,8 @@ app.use(cors({}));
 
 app.use('/third_party_auth', thirdPartyAuth);
 app.use('/third_party_api', thirdPartyApi);
+app.use('/cart', cart);
+app.use('/activity_cart', activity_cart);
 
 app.use((req, res) => {
    res.write('<h1>Hello mmrm server ~</h1>');
