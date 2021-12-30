@@ -43,6 +43,17 @@ const thirdPartyAuthDao = {
       }).catch(err => {
          return err.response.data;
       });
+   },
+   register_check(payload) {
+      return mmrmAxios({
+         url: '/api/third_party_auth/register_check',
+         method: 'post',
+         data: payload
+      }).then(res => {
+         return res.data; 
+      }).catch(err => {
+         return err.response.data;
+      });
    }
 };
 

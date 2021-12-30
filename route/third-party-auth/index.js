@@ -32,4 +32,12 @@ router.post('/refresh', async(req, res) => {
    res.status(statusCode).json(response);
 });
 
+router.post('/register_check', async(req, res) => {
+   let response = await thirdPartyAuthDao.register_check(req.body);
+   let statusCode = response.status === 1 ? 200 : 400;
+   res.status(statusCode).json(response);
+});
+
+
+
 module.exports = router;
