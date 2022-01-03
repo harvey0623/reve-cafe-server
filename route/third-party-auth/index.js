@@ -50,5 +50,11 @@ router.post('/register_verify', async(req, res) => {
    res.status(statusCode).json(response);
 });
 
+router.post('/resend_register_verify', async(req, res) => {
+   let response = await thirdPartyAuthDao.resend_register_verify(req.body);
+   let statusCode = response.status === 1 ? 200 : 400;
+   res.status(statusCode).json(response);
+});
+
 
 module.exports = router;

@@ -77,6 +77,17 @@ const thirdPartyAuthDao = {
          return err.response.data;
       });
    },
+   resend_register_verify(payload) {
+      return mmrmAxios({
+         url: '/api/third_party_auth/resend_register_verify',
+         method: 'post',
+         data: payload
+      }).then(res => {
+         return res.data; 
+      }).catch(err => {
+         return err.response.data;
+      });
+   },
 };
 
 module.exports = thirdPartyAuthDao;
