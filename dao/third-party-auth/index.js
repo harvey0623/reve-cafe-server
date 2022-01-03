@@ -54,7 +54,29 @@ const thirdPartyAuthDao = {
       }).catch(err => {
          return err.response.data;
       });
-   }
+   },
+   register(payload) {
+      return mmrmAxios({
+         url: '/api/third_party_auth/register',
+         method: 'post',
+         data: payload
+      }).then(res => {
+         return res.data; 
+      }).catch(err => {
+         return err.response.data;
+      });
+   },
+   register_verify(payload) {
+      return mmrmAxios({
+         url: '/api/third_party_auth/register_verify',
+         method: 'post',
+         data: payload
+      }).then(res => {
+         return res.data; 
+      }).catch(err => {
+         return err.response.data;
+      });
+   },
 };
 
 module.exports = thirdPartyAuthDao;

@@ -38,6 +38,17 @@ router.post('/register_check', async(req, res) => {
    res.status(statusCode).json(response);
 });
 
+router.post('/register', async(req, res) => {
+   let response = await thirdPartyAuthDao.register(req.body);
+   let statusCode = response.status === 1 ? 200 : 400;
+   res.status(statusCode).json(response);
+});
+
+router.post('/register_verify', async(req, res) => {
+   let response = await thirdPartyAuthDao.register_verify(req.body);
+   let statusCode = response.status === 1 ? 200 : 400;
+   res.status(statusCode).json(response);
+});
 
 
 module.exports = router;
