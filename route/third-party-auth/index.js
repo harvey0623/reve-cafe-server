@@ -56,5 +56,29 @@ router.post('/resend_register_verify', async(req, res) => {
    res.status(statusCode).json(response);
 });
 
+router.post('/forgot_password', async(req, res) => {
+   let response = await thirdPartyAuthDao.forgot_password(req.body);
+   let statusCode = response.status === 1 ? 200 : 400;
+   res.status(statusCode).json(response);
+});
+
+router.post('/resend_forget_verify', async(req, res) => {
+   let response = await thirdPartyAuthDao.resend_forget_verify(req.body);
+   let statusCode = response.status === 1 ? 200 : 400;
+   res.status(statusCode).json(response);
+});
+
+router.post('/forgot_password_verify', async(req, res) => {
+   let response = await thirdPartyAuthDao.forgot_password_verify(req.body);
+   let statusCode = response.status === 1 ? 200 : 400;
+   res.status(statusCode).json(response);
+});
+
+router.post('/reset_password', async(req, res) => {
+   let response = await thirdPartyAuthDao.reset_password(req.body);
+   let statusCode = response.status === 1 ? 200 : 400;
+   res.status(statusCode).json(response);
+});
+
 
 module.exports = router;
