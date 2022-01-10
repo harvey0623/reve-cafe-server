@@ -14,4 +14,10 @@ router.get('/product_recommend_meta', async(req, res) => {
    res.status(statusCode).json(response);
 });
 
+router.get('/product_detail/:productCode', async(req, res) => {
+   let response = await productDao.product_detail(req.params.productCode);
+   let statusCode = response.status === 1 ? 200 : 400;
+   res.status(statusCode).json(response);
+});
+
 module.exports = router;
