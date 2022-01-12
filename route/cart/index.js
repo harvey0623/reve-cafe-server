@@ -10,4 +10,11 @@ router.get('/', async(req, res) => {
    res.status(statusCode).json(response);
 });
 
+router.post('/add', async(req, res) => {
+   tempSave.access_token = req.headers.authorization;
+   let response = await cartDao.addCart(req.body);
+   let statusCode = response.status === 0 ? 401 : response.status === 1 ? 200 : 400;
+   res.status(statusCode).json(response);
+});
+
 module.exports = router;
