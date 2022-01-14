@@ -32,6 +32,18 @@ const productDao = {
       }).catch(err => {
          return err.response.data;
       })
+   },
+   product_category(query) {
+      return mmrmAxios({
+         url: '/api/product_category',
+         method: 'get',
+         data: {},
+         params: query
+      }).then(res => {
+         return res.data; 
+      }).catch(err => {
+         return err.response.data;
+      })
    }
 };
 

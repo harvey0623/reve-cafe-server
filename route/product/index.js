@@ -20,4 +20,10 @@ router.get('/product_detail/:productCode', async(req, res) => {
    res.status(statusCode).json(response);
 });
 
+router.get('/product_category', async(req, res) => {
+   let response = await productDao.product_category(req.query);
+   let statusCode = response.status === 1 ? 200 : 400;
+   res.status(statusCode).json(response);
+});
+
 module.exports = router;
