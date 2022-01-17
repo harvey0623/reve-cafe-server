@@ -4,7 +4,7 @@ const productDao = {
       return mmrmAxios({
          url: '/api/product',
          method: 'get',
-         pararms: payload
+         params: payload
       }).then(res => {
          return res.data; 
       }).catch(err => {
