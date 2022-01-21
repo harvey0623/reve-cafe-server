@@ -22,6 +22,18 @@ const activityDao = {
          return err.response.data;
       })
    },
+   full_amount_meta(payload) {
+      return mmrmAxios({
+         url: '/api/activity/product_promotions/full_amount_meta',
+         method: 'get',
+         data: {},
+         params: payload
+      }).then(res => {
+         return res.data; 
+      }).catch(err => {
+         return err.response.data;
+      })
+   }
 };
 
 module.exports = activityDao;
