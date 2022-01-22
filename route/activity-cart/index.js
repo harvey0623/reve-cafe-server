@@ -5,14 +5,14 @@ const tempSave = require('../../utility/tempSave/index.js');
 
 router.get('/product_promotions/bundle', async(req, res) => {
    tempSave.access_token = req.headers.authorization;
-   let response = await activityCartDao.getCart(req.body);
+   let response = await activityCartDao.getCart();
    let statusCode = response.status === 1 ? 200 : 401;
    res.status(statusCode).json(response);
 });
 
 router.post('/product_promotions/bundle', async(req, res) => {
    tempSave.access_token = req.headers.authorization;
-   let response = await activityCartDao.getCart(req.body);
+   let response = await activityCartDao.addCart(req.body);
    let statusCode = response.status === 1 ? 200 : 401;
    res.status(statusCode).json(response);
 });
