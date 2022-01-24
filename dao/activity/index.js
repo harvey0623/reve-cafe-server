@@ -33,6 +33,18 @@ const activityDao = {
       }).catch(err => {
          return err.response.data;
       })
+   },
+   red_with_green_meta(payload) {
+      return mmrmAxios({
+         url: '/api/activity/product_promotions/red_with_green_meta',
+         method: 'get',
+         data: {},
+         params: payload
+      }).then(res => {
+         return res.data; 
+      }).catch(err => {
+         return err.response.data;
+      })
    }
 };
 

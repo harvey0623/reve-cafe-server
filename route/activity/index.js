@@ -20,4 +20,10 @@ router.get('/product_promotions/full_amount_meta', async(req, res) => {
    res.status(statusCode).json(response);
 });
 
+router.get('/product_promotions/red_with_green_meta', async(req, res) => {
+   let response = await activityDao.red_with_green_meta(req.query);
+   let statusCode = response.status === 1 ? 200 : 400;
+   res.status(statusCode).json(response);
+});
+
 module.exports = router;
