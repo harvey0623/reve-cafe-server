@@ -4,7 +4,6 @@ const cartDao = {
       return mmrmAxios({
          url: '/api/cart',
          method: 'get',
-         data: {}
       }).then(res => {
          return res.data; 
       }).catch(err => {

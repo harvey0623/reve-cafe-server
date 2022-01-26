@@ -8,4 +8,10 @@ router.get('/banner', async(req, res) => {
    res.status(statusCode).json(response);
 });
 
+router.get('/article/brand', async(req, res) => {
+   let response = await scenesDao.brand();
+   let statusCode = response.status === 1 ? 200 : 400;
+   res.status(statusCode).json(response);
+});
+
 module.exports = router;

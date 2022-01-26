@@ -4,7 +4,16 @@ const scenesDao = {
       return mmrmAxios({
          url: '/api/scenes/home/banner',
          method: 'get',
-         data: {}
+      }).then(res => {
+         return res.data; 
+      }).catch(err => {
+         return err.response.data;
+      })
+   },
+   brand() {
+      return mmrmAxios({
+         url: '/api/scenes/article/brand',
+         method: 'get',
       }).then(res => {
          return res.data; 
       }).catch(err => {

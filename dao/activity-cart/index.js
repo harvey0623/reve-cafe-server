@@ -4,7 +4,6 @@ const activityCartDao = {
       return mmrmAxios({
          url: '/api/activity_cart/product_promotions/bundle',
          method: 'get',
-         data: {}
       }).then(res => {
          return res.data; 
       }).catch(err => {

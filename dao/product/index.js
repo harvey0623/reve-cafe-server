@@ -15,7 +15,6 @@ const productDao = {
       return mmrmAxios({
          url: '/api/product_recommend_meta',
          method: 'get',
-         data: {}
       }).then(res => {
          return res.data; 
       }).catch(err => {
@@ -26,7 +25,6 @@ const productDao = {
       return mmrmAxios({
          url: `/api/product_detail/${productCode}`,
          method: 'get',
-         data: {}
       }).then(res => {
          return res.data; 
       }).catch(err => {
@@ -37,7 +35,6 @@ const productDao = {
       return mmrmAxios({
          url: '/api/product_category',
          method: 'get',
-         data: {},
          params: query
       }).then(res => {
          return res.data; 
