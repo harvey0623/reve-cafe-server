@@ -41,6 +41,16 @@ const productDao = {
       }).catch(err => {
          return err.response.data;
       })
+   },
+   product_temperature() {
+      return mmrmAxios({
+         url: '/api/product_temperature',
+         method: 'get',
+      }).then(res => {
+         return res.data; 
+      }).catch(err => {
+         return err.response.data;
+      })
    }
 };
 
