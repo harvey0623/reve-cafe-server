@@ -17,4 +17,11 @@ router.post('/add', async(req, res) => {
    res.status(statusCode).json(response);
 });
 
+router.delete('/:id', async(req, res) => {
+   tempSave.access_token = req.headers.authorization;
+   let response = await cartDao.removeCart(req.params.id);
+   let statusCode = response.status === 1 ? 200 : 400;
+   res.status(statusCode).json(response);
+});
+
 module.exports = router;

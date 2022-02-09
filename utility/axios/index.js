@@ -1,7 +1,7 @@
 const axios = require('axios');
 const tempSave = require('../tempSave/index.js');
 const mmrmAxios = axios.create({
-   baseURL: process.env.BASE_URL,
+   baseURL: process.env.BASE_URL_LAN,
    headers: {
       'Content-Type': 'application/json',
       'language': 'zh_TW',

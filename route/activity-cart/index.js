@@ -17,5 +17,11 @@ router.post('/product_promotions/bundle', async(req, res) => {
    res.status(statusCode).json(response);
 });
 
+router.delete('/product_promotions/bundle/:id', async(req, res) => {
+   tempSave.access_token = req.headers.authorization;
+   let response = await activityCartDao.removeCart(req.params.id);
+   let statusCode = response.status === 1 ? 200 : 401;
+   res.status(statusCode).json(response);
+});
 
 module.exports = router;

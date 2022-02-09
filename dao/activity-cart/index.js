@@ -21,6 +21,16 @@ const activityCartDao = {
          return err.response.data;
       })
    },
+   removeCart(payload) {
+      return mmrmAxios({
+         url: `/api/activity_cart/product_promotions/bundle/${payload}`,
+         method: 'delete',
+      }).then(res => {
+         return res.data; 
+      }).catch(err => {
+         return err.response.data;
+      })
+   },
 };
 
 module.exports = activityCartDao;

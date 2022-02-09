@@ -21,6 +21,16 @@ const cartDao = {
          return err.response.data;
       })
    },
+   removeCart(payload) {
+      return mmrmAxios({
+         url: `/api/cart/${payload}`,
+         method: 'delete',
+      }).then(res => {
+         return res.data; 
+      }).catch(err => {
+         return err.response.data;
+      })
+   },
 };
 
 module.exports = cartDao;
