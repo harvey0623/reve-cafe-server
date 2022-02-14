@@ -9,7 +9,7 @@ const dotenv = require('dotenv').config({
    path: '.env.dev'
 });
 
-process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+// process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 
 const thirdPartyAuth = require('./route/third-party-auth/index.js');
 const thirdPartyApi = require('./route/third-party-api/index.js');
