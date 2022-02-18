@@ -30,6 +30,16 @@ const orderDao = {
          return err.response.data;
       })
    },
+   outbound() {
+      return mmrmAxios({
+         url: '/api/portal/order/shipment_outbound',
+         method: 'get',
+      }).then(res => {
+         return res.data; 
+      }).catch(err => {
+         return err.response.data;
+      })
+   },
 };
 
 module.exports = orderDao;

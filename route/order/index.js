@@ -20,5 +20,11 @@ router.get('/shipment', async(req, res) => {
    res.status(statusCode).json(response);
 });
 
+router.get('/shipment_outbound', async(req, res) => {
+   let response = await orderDao.outbound();
+   let statusCode = response.status === 1 ? 200 : 400;
+   res.status(statusCode).json(response);
+});
+
 
 module.exports = router;
