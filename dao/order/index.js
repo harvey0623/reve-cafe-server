@@ -40,6 +40,28 @@ const orderDao = {
          return err.response.data;
       })
    },
+   createOrder(payload) {
+      return mmrmAxios({
+         url: '/api/order',
+         method: 'post',
+         data: payload
+      }).then(res => {
+         return res.data; 
+      }).catch(err => {
+         return err.response.data;
+      })
+   },
+   order_detail(orderNumber) {
+      return mmrmAxios({
+         url: '/api/order_detail',
+         method: 'get',
+         params: { vOrderNum: orderNumber }
+      }).then(res => {
+         return res.data; 
+      }).catch(err => {
+         return err.response.data;
+      })
+   },
 };
 
 module.exports = orderDao;
