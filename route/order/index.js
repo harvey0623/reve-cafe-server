@@ -40,5 +40,11 @@ router.get('/order_detail', async(req, res) => {
    res.json(response);
 });
 
+router.get('/order_history', async(req, res) => {
+   tempSave.access_token = req.headers.authorization;
+   let response = await orderDao.order_history(req.query);
+   res.json(response);
+});
+
 
 module.exports = router;

@@ -62,6 +62,17 @@ const orderDao = {
          return err.response.data;
       })
    },
+   order_history(payload) {
+      return mmrmAxios({
+         url: '/api/order',
+         method: 'get',
+         params: payload
+      }).then(res => {
+         return res.data; 
+      }).catch(err => {
+         return err.response.data;
+      })
+   },
 };
 
 module.exports = orderDao;
