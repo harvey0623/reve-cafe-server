@@ -9,7 +9,7 @@ const dotenv = require('dotenv').config({
    path: '.env.dev'
 });
 
-// process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0; //區網始用
 
 const thirdPartyAuth = require('./route/third-party-auth/index.js');
 const thirdPartyApi = require('./route/third-party-api/index.js');
@@ -22,6 +22,7 @@ const customer = require('./route/customer-service/index.js');
 const faq = require('./route/faq/index.js');
 const third_party_member = require('./route/third_party_member/index.js');
 const order = require('./route/order/index.js');
+const webConfig = require('./route/webConfig/index.js');
 
 app.listen(port);
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -41,6 +42,7 @@ app.use('/customer', customer);
 app.use('/faq', faq);
 app.use('/third_party_member', third_party_member);
 app.use('/order', order);
+app.use('/webConfig', webConfig);
 
 app.use((req, res) => {
    res.write('<h1>Hello mmrm server ~</h1>');
