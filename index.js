@@ -45,6 +45,6 @@ app.use('/order', order);
 app.use('/webConfig', webConfig);
 
 app.use((req, res) => {
-   res.write('<h1>Hello mmrm server ~</h1>');
+   res.write('<h1>Hello revecafe server ~</h1>');
    res.end();
 });
