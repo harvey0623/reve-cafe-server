@@ -25,7 +25,6 @@ const webConfig = require('./route/webConfig/index.js');
 app.listen(port);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-// app.use(cookieParser(process.env.COOKIE_SECRET_KEY));
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(cors({}));
 
